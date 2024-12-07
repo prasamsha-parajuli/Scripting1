@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form id="registrationForm">
+        <label for="username">Username (2-15 characters):</label><br>
+        <input type="text" id="username" name="username" required>
+        <div id="usernameError" class="error"></div><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required>
+        <div id="passwordError" class="error"></div><br>
+
+        <label for="age">Age (15-30):</label><br>
+        <input type="number" id="age" name="age" required>
+        <div id="ageError" class="error"></div><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label><br>
+        <div id="genderError" class="error"></div><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="welcomeMessage" class="error"></div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Clear previous error messages
+            document.getElementById('usernameError').innerHTML = '';
+            document.getElementById('passwordError').innerHTML = '';
+            document.getElementById('ageError').innerHTML = '';
+            document.getElementById('genderError').innerHTML = '';
+            document.getElementById('welcomeMessage').innerHTML = '';
+
+            // Get values from the form
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const age = document.getElementById('age').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+
+            let isValid = true;
+
+            // Validate username
+            if (username.length < 2 || username.length > 15) {
+                document.getElementById('usernameError').innerHTML = 'Username must be between 2 and 15 characters.';
+                isValid = false;
+            }
+
+            // Validate password
+            if (password !== 'THAMESBCA') {
+                document.getElementById('passwordError').innerHTML = 'Password must be "THAMESBCA".';
+                isValid = false;
+            }
+
+            // Validate age
+            if (!/^\d+$/.test(age) || age < 15 || age > 30) {
+                document.getElementById('ageError').innerHTML = 'Age must be a number between 15 and 30.';
+                isValid = false;
+            }
+
+            // Validate gender
+            if (!gender) {
+                document.getElementById('genderError').innerHTML = 'Gender must be selected.';
+                isValid = false;
+            }
+
+            // Display welcome message or errors
+            if (isValid) {
+                document.getElementById('welcomeMessage').innerHTML = 'Welcome!';
+                document.getElementById('welcomeMessage').style.color = 'green';
+            }
+        });
+    </script>
+</body>
+</html>

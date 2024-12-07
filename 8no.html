@@ -1,0 +1,45 @@
+8<!-- Create a two-dimensional array storing five student’s data and display them in HTML
+table. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data</title>
+    <style>
+        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Student Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody id="studentTable"></tbody>
+    </table>
+
+    <script>
+        const students = [
+            ['Salina', 16, 'A'],
+            ['Aarya', 17, 'B+'],
+            ['Tenzin', 15, 'A-'],
+            ['Prasamsha', 16, 'B'],
+            ['Shrisha', 17, 'A+']
+        ];
+
+        let tableContent = '';
+        students.forEach(student => {
+            tableContent += `<tr><td>${student[0]}</td><td>${student[1]}</td><td>${student[2]}</td></tr>`;
+        });
+
+        document.getElementById('studentTable').innerHTML = tableContent;
+    </script>
+
+</body>
+</html>

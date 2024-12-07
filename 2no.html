@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS Functions</title>
+</head>
+<body>
+    <h1>JavaScript Functions Examples</h1>
+    <script>
+        // Function to greet a user
+        function greetUser(name) {
+            console.log("Hello, " + name + "! Welcome to JavaScript.");
+        }
+
+        // Function to add two numbers
+        function addNumbers(a, b) {
+            return a + b;
+        }
+
+        // Function to check if a number is even or odd
+        function isEven(number) {
+            if (number % 2 === 0) {
+                return "Even";
+            } else {
+                return "Odd";
+            }
+        }
+
+        // Calling the functions
+        greetUser("Anaya");
+
+        let sum = addNumbers(5, 7);
+        console.log("The sum of 5 and 7 is: " + sum);
+
+        let numberType = isEven(10);
+        console.log("10 is an " + numberType + " number.");
+    </script>
+</body>
+</html>

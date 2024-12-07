@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Operations</title>
+</head>
+<body>
+  <h1>Array Operations</h1>
+  <p>Open the browser console to see the results of the operations.</p>
+
+  <script>
+    // Create an array of 10 student names
+    let students = ["Prasamsha", "Aarya", "Salina", "Tenzin", "Rojesh", "Shrisha", "Shristi", "Aaryan", "Bipul", "Prasamsha"];
+    console.log("Initial Array:", students);
+
+    // Convert the array to a string
+    let studentsString = students.join(", ");
+    console.log("Array as String:", studentsString);
+
+    // Add two elements at position 5
+    students.splice(5, 0, "Priya", "Riya");
+    console.log("After Adding Two Elements at Position 5:", students);
+
+    // Remove four elements from position 6
+    students.splice(6, 4);
+    console.log("After Removing Four Elements from Position 6:", students);
+
+    // Insert three elements at the last position
+    students.push("Rohan", "Mohan", "Sohanr");
+    console.log("After Adding Three Elements at the End:", students);
+
+    // Extract any three elements (e.g., from index 2 to 4)
+    let extractedElements = students.slice(2, 5);
+    console.log("Extracted Elements (Index 2 to 4):", extractedElements);
+
+    // Final Array
+    console.log("Final Array:", students);
+  </script>
+</body>
+</html>

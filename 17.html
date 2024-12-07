@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Days Until New Year's Day</title>
+</head>
+<body>
+    <h1>Calculate Days Until New Year's Day</h1>
+    <button onclick="calculateDaysUntilNewYear()">Calculate Days</button>
+    <div id="result"></div>
+
+    <script>
+        function calculateDaysUntilNewYear() {
+            const today = new Date();
+            let nextNewYear = new Date(today.getFullYear() + 1, 0, 1);
+
+            // Check if today is already New Year's Day
+            if (today.getMonth() === 0 && today.getDate() === 1) {
+                nextNewYear = new Date(today.getFullYear(), 0, 1);
+            }
+
+            // Calculate the difference in time
+            const timeDifference = nextNewYear - today;
+
+            // Convert time difference from milliseconds to days
+            const daysUntilNewYear = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+            // Display the result
+            document.getElementById('result').innerText = `There are ${daysUntilNewYear} days left until New Year's Day!`;
+        }
+    </script>
+</body>
+</html>

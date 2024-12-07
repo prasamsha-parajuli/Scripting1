@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Message</title>
+    <script>
+        // Function to display the welcome message
+        function showWelcomeMessage() {
+            // Create a new paragraph element
+            const messageElement = document.createElement('p');
+            // Set the text content of the paragraph
+            messageElement.textContent = "Welcome to Thames - Class of 2024";
+            // Append the paragraph to the body
+            document.body.appendChild(messageElement);
+        }
+
+        // Set a timeout to call the function after 5 seconds (5000 milliseconds)
+        setTimeout(showWelcomeMessage, 5000);
+    </script>
+</head>
+<body>
+    <h2>Please wait for the welcome message...</h2>
+</body>
+</html>

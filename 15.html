@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Date Calculation</title>
+</head>
+<body>
+<h1>Calculate Date one week from Today</h1>
+<button onclick="calculateNextWeek()">Get Data</button>
+<div id="result"></div>
+<script>
+function calculateNextWeek() {
+    // Get today's date
+    const today = new Date();
+
+    // Calculate the date one week from today
+    const nextWeek = new Date(today);
+    nextWeek.setDate(today.getDate() + 7);
+
+    // Formatting in readable format
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+    // Display results
+    document.getElementById('result').innerText = 'The date one week from today is: ' + nextWeek.toLocaleDateString(undefined, options);
+}
+</script>
+</body>
+</html>

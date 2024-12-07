@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Management Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Cookie Management Example</h2>
+
+    <h3>Create Cookie</h3>
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" placeholder="Enter username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" placeholder="Enter password"><br>
+    <button onclick="createCookie()">Create Cookie</button>
+
+    <h3>Retrieve Cookie</h3>
+    <button onclick="retrieveCookie()">Retrieve Cookie</button>
+    <div id="cookieOutput"></div>
+
+    <h3>Delete Cookie</h3>
+    <button onclick="deleteCookie()">Delete Cookie</button>
+
+    <script>
+        // Function to create a cookie
+        function createCookie() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const expires = new Date();
+            expires.setFullYear(expires.getFullYear() + 1); // Cookie expires in 1 year
+            document.cookie = `username=${username}; expires=${expires.toUTCString()}; path=/`;
+            document.cookie = `password=${password}; expires=${expires.toUTCString()}; path=/`;
+            alert("Cookies created successfully!");
+        }
+
+        // Function to retrieve cookies
+        function retrieveCookie() {
+            const cookies = document.cookie.split('; ');
+            let cookieOutput = '';
+
+            for (let i = 0; i < cookies.length; i++) {
+                cookieOutput += cookies[i] + '<br>';
+            }
+
+            if (cookieOutput === '') {
+                cookieOutput = 'No cookies found.';
+            }
+
+            document.getElementById('cookieOutput').innerHTML = cookieOutput;
+        }
+
+        // Function to delete cookies
+        function deleteCookie() {
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+            document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+            alert("Cookies deleted successfully!");
+        }
+    </script>
+</body>
+</html>

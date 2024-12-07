@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Array Manipulation</title>
+</head>
+<body>
+
+<script>
+    // Step 1: Create an array of fruits
+    let fruits = ['apple', 'orange', 'mango'];
+
+    // Step 2: Function to add items to the front of the array
+    function addFruitsToFront(newFruits) {
+        fruits.unshift(...newFruits); // Adds new fruits to the front
+    }
+
+    // Step 3: Add three more items to the front of the array
+    addFruitsToFront(['banana', 'grape', 'kiwi']);
+
+    // Step 4: Remove two items from the back of the array
+    fruits.pop(); // Removes the last item
+    fruits.pop(); // Removes the second last item
+
+    // Step 5: Display the items of the array in string format
+    let fruitsString = fruits.join(', '); // Join the array into a string
+    console.log(fruitsString); // Output the string to the console
+    alert(fruitsString); // Display the string in an alert box
+</script>
+
+</body>
+</html>

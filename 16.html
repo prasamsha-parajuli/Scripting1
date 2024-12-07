@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Age</title>
+</head>
+<body>
+    <h1>Calculate Your Age</h1>
+    <label for="birthdate">Enter your birthday:</label>
+    <input type="date" id="birthdate">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div id="result"></div>
+
+    <script>
+        function calculateAge() {
+            const birthdateInput = document.getElementById('birthdate').value;
+
+            if (!birthdateInput) {
+                document.getElementById('result').innerText = "Please enter a valid birthdate.";
+                return;
+            }
+
+            const birthdate = new Date(birthdateInput);
+            const today = new Date();
+
+            let years = today.getFullYear() - birthdate.getFullYear();
+            let months = today.getMonth() - birthdate.getMonth();
+            let days = today.getDate() - birthdate.getDate();
+
+            // Adjust for negative days or months
+            if (days < 0) {
+                months--;
+                days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById('result').innerText = `Your age is ${years} years, ${months} months, and ${days} days.`;
+        }
+    </script>
+</body>
+</html>

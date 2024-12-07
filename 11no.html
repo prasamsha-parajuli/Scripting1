@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Split Full Name</title>
+</head>
+<body>
+  <h1>Split Full Name</h1>
+  <script>
+  function splitName(fullName) {
+  // Split the full name into an array using space as the delimiter
+  const nameParts = fullName.split(' ');
+
+  // Extract the first and last names
+  const firstName = nameParts[0];
+  const lastName = nameParts[nameParts.length - 1];
+
+  // Display the results
+  console.log("First Name:", firstName);
+  console.log("Last Name:", lastName);
+}
+
+// Example usage:
+splitName("John Doe"); // Output: First Name: John, Last Name: Doe
+  </script>
+</body>
+</html>

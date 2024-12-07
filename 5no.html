@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Functions Example</title>
+</head>
+
+<body>
+  <script >
+
+//Function Scope
+
+ function myFunction() {
+    var a = 10;
+
+    if (a == 10) {
+        var a = 20;
+        console.log("I am inside of if block: " + a);
+    }
+    console.log("I am outside of if block: " + a);
+}
+
+myFunction(); 
+
+//Block Scope
+ function myFunction1() {
+    var a = 10;
+
+    if (a == 10) {
+        let a = 20;
+        console.log("I am inside of if block: " + a);
+    }
+    console.log("I am outside of if block: " + a);
+}
+
+myFunction1(); 
+
+  </script>
+</body>
+
+</html>

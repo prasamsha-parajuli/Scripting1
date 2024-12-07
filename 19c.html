@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <!-- <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style> -->
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="registrationForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <span class="error" id="nameError"></span><br>
+
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="address"><br>
+    <span class="error" id="addressError"></span><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <span class="error" id="emailError"></span><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <span class="error" id="passwordError"></span><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Clear previous error messages
+        document.getElementById('nameError').innerText = '';
+        document.getElementById('addressError').innerText = '';
+        document.getElementById('emailError').innerText = '';
+        document.getElementById('passwordError').innerText = '';
+
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        // Validation flags
+        let isValid = true;
+
+        // Validate name
+        if (name === '') {
+            document.getElementById('nameError').innerText = 'Name is required.';
+            isValid = false;
+        }
+
+        // Validate address
+        if (address === '') {
+            document.getElementById('addressError').innerText = 'Address is required.';
+            isValid = false;
+        }
+
+        // Validate email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === '') {
+            document.getElementById('emailError').innerText = 'Email is required.';
+            isValid = false;
+        } else if (!emailPattern.test(email)) {
+            document.getElementById('emailError').innerText = 'Please enter a valid email address.';
+            isValid = false;
+        }
+
+        // Validate password
+        if (password === '') {
+            document.getElementById('passwordError').innerText = 'Password is required.';
+            isValid = false;
+        } else if (password.length < 6) {
+            document.getElementById('passwordError').innerText = 'Password must be at least 6 characters long.';
+            isValid = false;
+        }
+
+        // If all fields are valid, you can submit the form or perform further actions
+        if (isValid) {
+            alert('Form submitted successfully!');
+            // You can use AJAX or any other method to submit the form data
+            // For now, we will just log the values
+            console.log({ name, address, email, password });
+        }
+    });
+</script>
+
+</body>
+</html>
